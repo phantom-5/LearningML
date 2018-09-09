@@ -27,7 +27,7 @@ y_labels=np.array(dataf['label'])
 x_features=preprocessing.scale(x_features)
 x_train,x_test,y_train,y_test=cross_validation.train_test_split(x_features,y_labels,test_size=0.2)
 
-clf=svm.SVR(kernel='poly')
+clf=LinearRegression(n_jobs=-1) #run as many jobs as possible, fastens training
 clf.fit(x_train,y_train)
 accuracy=clf.score(x_test,y_test)
 print(accuracy*100)
